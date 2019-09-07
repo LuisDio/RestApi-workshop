@@ -1,6 +1,19 @@
 let mongoose = require('mongoose')
 
-const server;
-const database;
-const user;
-const password;
+const server = 'ds221609.mlab.com:21609';
+const database = 'rest-api-workshop';
+const user = 'theoutlander';
+const password = 'fZsMGZXOMx8....';
+
+mongoose.connect(`mongodb://${user}:${password}@${server}/${database}`);
+
+let CustomerSchema = new mongoose.Schema({
+    name: String,
+    email: {
+        type: String,
+        require: true,
+        unique: true
+    }
+});
+
+module.exports = mongoose.model('Customer', CustomerSchema);
