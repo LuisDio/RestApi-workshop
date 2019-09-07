@@ -6,11 +6,13 @@ let path = require('path')
 
 let bodyParser = require('body-parser')
 
+app.use(bodyParser.json())
+
 // import route from route folder
 let personRoute = require('./routes/person')
 
 app.use((req, res, next) => {
-    console.log(`${new Date().toString()} => ${req.originalUrl}`)
+    console.log(`${new Date().toString()} => ${req.originalUrl}`, req.body)
     next()
 })
 // using route to person
