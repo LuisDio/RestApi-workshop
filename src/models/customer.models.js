@@ -11,7 +11,7 @@ let CustomerSchema = new mongoose.Schema({
     name: String,
     email: {
         type: String,
-        require: true,
+        required: true,
         unique: true
     }
 });
